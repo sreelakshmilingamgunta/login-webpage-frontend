@@ -1,0 +1,100 @@
+.forgot{
+    height: 100vh;
+    background-color:rgb(251, 243, 251);
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+.forgot-card{
+    display: flex;
+    width: 50%;
+    background-color: white;
+    border-radius: 10px;
+    min-height: 400px;
+    overflow: hidden;
+}
+.forgot-left{
+    flex: 1;
+    background:linear-gradient(rgba(39,11,96,0.5),rgba(39,11,96,0.5)) ,url("https://render.fineartamerica.com/images/images-profile-flow/400/images/artworkimages/mediumlarge/2/center-of-attention-jon-kinney.jpg") center;
+    background-size: cover;
+    padding: 30px;
+    flex-direction: column;
+    gap: 60px;
+    color: white;
+
+}
+.forgot-left-heading{
+    font-size: 50px;
+    line-height: 60px;
+}
+.forgot-left-paragraph{
+    font-size: 20px;
+}
+.forgot-left-button{
+    margin-top: 10px;
+    width: 50%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: white;
+    color: rebeccapurple;
+    font-weight: bold;
+    cursor: pointer;
+}
+.forgot-right{
+    flex: 1;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.forgot-right-form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.forgot-right-input{
+    border: none;
+    border-bottom: 1px solid lightgrey;
+    padding: 10px 10px;
+    outline: none;
+}
+.forgot-right-button{
+    width: auto;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    background-color: rebeccapurple;
+    font-weight: bold;
+    cursor: pointer;
+}
+.forgot-heading{
+    font-size: 24px;
+}
+.forgot-right-heading{
+    font-size: 30px;
+}
+.reset-button{
+    width: 260px;
+    background-color: transparent;
+    border: 2px solid rebeccapurple;
+    color: rebeccapurple;
+}
+.block-item{
+    display: block;
+}
+.none-item{
+    display: none;
+}
+.span-element{
+    color: red;
+    font-weight: 500;
+}
+.green{
+    color: rgb(6, 252, 6);
+    font-weight: 500;
+}
+.position{
+    text-align: center;
+}

@@ -1,0 +1,105 @@
+.login{
+    height: 100vh;
+    background-color: rgb(251, 243, 251);
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+.card{
+    display: flex;
+    width: 50%;
+    background-color: white;
+    border-radius: 10px;
+    min-height: 400px;
+    overflow: hidden;
+}
+.left{
+    flex: 1;
+    background:linear-gradient(rgba(39,11,96,0.5),rgba(39,11,96,0.5)) ,url("https://images.fineartamerica.com/images/artworkimages/mediumlarge/1/2-brooklyn-bridge-eli-maier.jpg") center;
+    background-size: cover;
+    padding: 30px;
+    flex-direction: column;
+    gap: 30px;
+    color: white;
+
+}
+.right{
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    justify-content: center;
+}
+.left-heading{
+    font-size: 50px;
+    line-height: 50px;
+}
+.left-paragraph{
+    font-size: 20px;
+}
+.left-button{
+    margin-top: 10px;
+    width: 50%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: white;
+    color: rebeccapurple;
+    font-weight: bold;
+    cursor: pointer;
+}
+.right-form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.right-input{
+    border: none;
+    border-bottom: 1px solid lightgrey;
+    padding: 10px 10px;
+    outline: none;
+}
+.right-button{
+    margin-top: 10px;
+    width: 50%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    background-color: rebeccapurple;
+    font-weight: bold;
+    cursor: pointer;
+}
+.forgot-element{
+    font-size: 13px;
+    text-align: right;
+    text-decoration: underline;
+    color: black;
+    font-weight: 500;
+    cursor: pointer;
+}
+.container{
+    background-color: transparent;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0px;
+    padding: 0px;
+    font-weight: bold;
+}
+.error-container{
+    color: rgb(239, 12, 12);
+    border: 2px solid rgb(239, 21, 21);
+    
+}
+.icon{
+    font-size: 30px;
+    padding-right: 10px;
+    padding-top: 0px;
+}
+.prop-container{
+    color: rgb(93, 190, 93);
+    border: 2px solid  rgb(93, 190, 93);
+}
