@@ -5,73 +5,16 @@
     align-items: center;
     justify-content: center;
 }
-.card{
-    display: flex;
-    width: 60%;
-    background-color: white;
-    border-radius: 10px;
-    min-height: 400px;
-    overflow: hidden;
-}
-.signup-left{
-    flex: 1;
-    background:linear-gradient(rgba(39,11,96,0.5),rgba(39,11,96,0.5)) ,url("https://render.fineartamerica.com/images/images-profile-flow/400/images-medium-large-5/contact-michael-zheng.jpg") center;
-    background-size: cover;
-    padding: 30px;
-    flex-direction: column;
-    gap: 30px;
-    color: white;
-
-}
-.right{
-    flex: 1;
-    padding: 40px;
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    justify-content: center;
-}
-.left-heading{
-    font-size: 50px;
-    line-height: 50px;
-}
-.left-paragraph{
-    font-size: 20px;
-}
-.left-button{
-    margin-top: 50px;
-    width: 50%;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    background-color: white;
-    color: rebeccapurple;
-    font-weight: bold;
-    cursor: pointer;
-}
-.right-form{
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-.right-input{
-    border: none;
-    border-bottom: 1px solid lightgrey;
-    padding: 10px 10px;
-    outline: none;
-}
-.right-button{
-    margin-top: 10px;
-    width: 50%;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    color: white;
-    background-color: rebeccapurple;
-    font-weight: bold;
-    cursor: pointer;
-}
 .span{
-    color: rgb(10, 244, 252);
-    margin-top: 40px;
+    color: rgb(236, 147, 203);
+    color: rgb(169, 168, 168);
+    text-decoration: underline;
+    
+}
+.sign-up-div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+    margin-top: 100px;
 }

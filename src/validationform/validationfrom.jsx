@@ -8,8 +8,7 @@ export default function Validation(inputValues){
     if (inputValues.email==="") {
       validationErrors.email = '*Email is required';
     } else if (!/\S+@\S+\.\S+/.test(inputValues.email)) {
-      // validationErrors.email = 'Please ingress a valid email address';
-      validationErrors.email="";
+      validationErrors.email = 'Please ingress a valid email address';
     } else{
       validationErrors.email_verify="success"
     }
@@ -46,11 +45,9 @@ export default function Validation(inputValues){
     if(confirmPassword!==undefined){
       if (confirmPassword==="") {
         validationErrors.confirmPassword = '*password is required';
-      } else if (confirmPassword.length < 6) {
-        validationErrors.confirmPassword = 'Password must be more than 6 characters';
-      } else if (confirmPassword.length >= 20) {
-        validationErrors.confirmPassword = 'Password must be less than 20 characters';
-      }else{
+      } else if (confirmPassword!==newPassword) {
+        validationErrors.confirmPassword= 'Password is not matched';
+      } else{
         validationErrors.confirmPassword_verify="success"
       }
     }

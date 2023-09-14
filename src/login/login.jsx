@@ -3,10 +3,11 @@ import './login.css'
 import { useNavigate} from "react-router-dom";
 import Validation from "../validationform/validationfrom"
 import {CgDanger} from "react-icons/cg"
-import {TiTick} from "react-icons/ti";
+import { TiTick} from "react-icons/ti";
 function Login(){
     const[formData,setFormData]=useState({email:"",password:""})
-    const[errors,setErrors]=useState({})
+    const[errors,setErrors]=useState({email:false,password:false})
+    // const[store,setStore]=useState({})
     const[propsMessage,setPropsMessage]=useState("")
     const[props,setProps]=useState(false)
     const[propMsg,setPropMsg]=useState(false)
@@ -17,15 +18,21 @@ function Login(){
         const{name,value}=e.target;
         setFormData({...formData,[name]:value})
     }
-    const handleFocus=((event)=>{
-        const n=event.target.name;
-        errors[n]="";
-     })
-    
+
+    const handleBlur=(e)=>{
+        const {name}=e.target
+        setErrors({...errors,
+            [name]:!errors.name
+        })
+    }
+  
     const handleSubmitLogin=async(e)=>{
         e.preventDefault();
         var errData=Validation(formData)
-        setErrors(errData)
+        // setStore(errData)
+
+        setErrors({email:true,password:true})
+
         if(errData.email_verify==="success" && errData.password_verify==="success"){
             let userDetails={
                 Email:formData.email,
@@ -46,7 +53,6 @@ function Login(){
 
                 if(response.status===200){
                     console.log(jsonResponse.prop);
-                    // navigate('/signup',{replace:true})
                     setPropsMessage(jsonResponse.prop)
                     setPropMsg(true)
                     setProps(false)
@@ -57,8 +63,6 @@ function Login(){
                     setPropsMessage(jsonResponse.prop);
                     setProps(true);
                     setPropMsg(false)
-                    errors.email1="";
-                    errors.password="";
                 }
             }catch(error){
                 alert(error.msg)
@@ -78,8 +82,10 @@ function Login(){
                 <div className="left">
                     <h1 className="left-heading">Hello World</h1>
                     <p className="left-paragraph">Start for free and get attractive offers from the community.</p>
-                    <span className="span">Don't you have an account?</span>
-                    <button className="left-button" onClick={OnClickSignup}>Signup</button>
+                    <div className="sign-up-div">
+                        <span className="span">Don't you have an account?</span>
+                        <button className="left-button" onClick={OnClickSignup}>Sign up</button>
+                    </div>
                 </div>
                 <div className="right">
                     {propMsg?<div className="container prop-container">
@@ -88,16 +94,16 @@ function Login(){
                     {props?<div className="error-container container">
                         <CgDanger className="icon"/><p>{propsMessage}</p>  
                     </div>:""}
-                    <h1>Log In</h1>
+                    <h1>LogIn</h1>
                     <form className="right-form" onSubmit={handleSubmitLogin}>
-                        {errors.email && <span className="span-element">{errors.email}</span>}
-                        <input type="email" name="email" placeholder="User Mail" value={formData.email} onChange={handleChange} className="right-input" onFocus={handleFocus}/>
+                        <input type="email" name="email" placeholder="User Mail" value={formData.email} onChange={handleChange} className="right-input"  onBlur={handleBlur}/>
+                        {errors.email && <span className="span-element">{Validation(formData).email}</span>}
 
-                        {errors.password && <span className="span-element">{errors.password}</span>}
-                        <input type="password" name="password" placeholder="Password" value={formData.password} onChange={handleChange} className="right-input" onFocus={handleFocus}/>
+                        <input type="password" name="password" placeholder="Password" value={formData.password} onChange={handleChange} className="right-input"  onBlur={handleBlur}/>
+                        {errors.password && <span className="span-element">{Validation(formData).password}</span>}
                         
                         <span className="forgot-element" onClick={OnClickForgot}>Forgot Password?</span>
-                        <button className="right-button" type="submit">Login</button>
+                        <button className="right-button" type="submit">Log in</button>
                     </form>
                 </div>
             </div>

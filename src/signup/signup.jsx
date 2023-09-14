@@ -6,7 +6,7 @@ import {CgDanger} from "react-icons/cg"
 import {TiTick} from "react-icons/ti";
 function Signup(){
     const [formData,setFormData]=useState({username:"",email:"",password:"",confirmPassword:""})
-    const[errors,setErrors]=useState({})
+    const[errors,setErrors]=useState({username:false,email:false,password:false,confirmPassword:false})
     const[propsMessage,setPropsMessage]=useState("")
     const[props,setProps]=useState(false)
     const[propMsg,setPropMsg]=useState(false)
@@ -17,11 +17,19 @@ function Signup(){
         const {name,value}=e.target;
         setFormData({...formData,[name]:value})
     }
+
+    const handleBlur=(e)=>{
+        const {name}=e.target
+        setErrors({...errors,
+            [name]:!errors.name
+        })
+    } 
     
     const handleSubmit= async (e) =>{
         e.preventDefault();
         var errData=Validation(formData)
-        setErrors(errData)
+        // setErrors(errData)
+        setErrors({username:true,email:true,password:true,confirmPassword:true})
 
         if(errData.email_verify==="success" && errData.password_verify==="success" && errData.confirmPassword_verify==="success"){
             if(formData.password===formData.confirmPassword){
@@ -59,9 +67,6 @@ function Signup(){
                 setPropsMessage("Both the passwords should be same. Please try again!")
                 setProps(true)
                 setPropMsg(false)
-                errors.email_verify="";
-                errors.password_verify="";
-                errors.confirmPassword_verify=""
             }
         }
     }
@@ -69,11 +74,7 @@ function Signup(){
     const OnClickLogin=()=>{
         navigate("/",{replace:true})
     }
-    const handleFocus=((event)=>{
-        const n=event.target.name;
-        console.log(n)
-        errors[n]="";
-    });
+      
     return(
         <div className="signup">
             <div className="card">
@@ -86,25 +87,28 @@ function Signup(){
                     </div>:""}
                     <h1>Sign Up</h1>
                     <form className="right-form" onSubmit={handleSubmit}>
-                        {errors.username && <span className="span-element">{errors.username}</span>}
-                        <input type="text" name="username" placeholder="Username"  className="right-input" value={formData.username} onChange={handleChange} onFocus={handleFocus}/>
+                        <input type="text" name="username" placeholder="Username"  className="right-input" value={formData.username} onChange={handleChange} onBlur={handleBlur}/>
+                        {errors.username && <span className="span-element">{Validation(formData).username}</span>}
 
-                        {errors.email && <span className="span-element">{errors.email}</span>}
-                        <input type="email" name="email" placeholder="Email" className="right-input" value={formData.email} onChange={handleChange} onFocus={handleFocus}/>
+                        <input type="email" name="email" placeholder="Email" className="right-input" value={formData.email} onChange={handleChange} onBlur={handleBlur}/>
+                        {errors.email && <span className="span-element">{Validation(formData).email}</span>}
 
-                        {errors.password && <span className="span-element">{errors.password}</span>}
-                        <input type="password" name="password" placeholder="Password" className="right-input" value={formData.password} onChange={handleChange} onFocus={handleFocus}/>
+                        <input type="password" name="password" placeholder="Password" className="right-input" value={formData.password} onChange={handleChange} onBlur={handleBlur}/>
+                        {errors.password && <span className="span-element">{Validation(formData).password}</span>}
 
-                        {errors.confirmPassword && <span className="span-element">{errors.confirmPassword}</span>}
-                        <input type="password" name="confirmPassword" placeholder="Confirm Password" className="right-input" value={formData.confirmPassword} onChange={handleChange} onFocus={handleFocus}/>
-                        <button className="right-button" type="submit">SignUp</button>
+                        <input type="password" name="confirmPassword" placeholder="Confirm Password" className="right-input" value={formData.confirmPassword} onChange={handleChange} onBlur={handleBlur}/>
+                        {errors.confirmPassword && <span className="span-element">{Validation(formData).confirmPassword}</span>}
+                        <button className="right-button" type="submit">Sign Up</button>
                     </form>
                 </div>
-                <div className="signup-left">
+                <div className="left">
                     <h1 className="left-heading">Hello World</h1>
                     <p className="left-paragraph">Every problem is a gift  without problems we would not grow.</p>
-                    <span className="span">Do you have an account?</span>
-                    <button className="left-button" onClick={OnClickLogin}>Login</button>
+                    <div className="sign-up-div">
+                        <span className="span">Do you have an account?</span>
+                        <button className="left-button" onClick={OnClickLogin}>Log in</button>
+                    </div>
+
                 </div>
             </div>
         </div>

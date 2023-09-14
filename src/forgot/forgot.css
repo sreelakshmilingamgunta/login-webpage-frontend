@@ -5,14 +5,7 @@
     align-items: center;
     justify-content: center;
 }
-.forgot-card{
-    display: flex;
-    width: 50%;
-    background-color: white;
-    border-radius: 10px;
-    min-height: 400px;
-    overflow: hidden;
-}
+
 .forgot-left{
     flex: 1;
     background:linear-gradient(rgba(39,11,96,0.5),rgba(39,11,96,0.5)) ,url("https://render.fineartamerica.com/images/images-profile-flow/400/images/artworkimages/mediumlarge/2/center-of-attention-jon-kinney.jpg") center;
@@ -24,8 +17,9 @@
 
 }
 .forgot-left-heading{
-    font-size: 50px;
+    font-size: 40px;
     line-height: 60px;
+   
 }
 .forgot-left-paragraph{
     font-size: 20px;
@@ -88,6 +82,7 @@
     display: none;
 }
 .span-element{
+    font-size: 12px;
     color: red;
     font-weight: 500;
 }
