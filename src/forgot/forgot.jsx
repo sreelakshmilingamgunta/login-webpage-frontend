@@ -151,7 +151,7 @@ export default function Forgot(){
                     <h1 className="forgot-left-heading">Hello World</h1>
                     <p className="forgot-left-paragraph">Strength and growth come only through continuous effort and struggle.</p>
                     <p>"If you're confused about what to do,
-                        it's a sign that your enemy is winning."v n </p>
+                        it's a sign that your enemy is winning."</p>
                 </div>
             </div>
         </div>

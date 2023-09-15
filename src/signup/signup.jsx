@@ -5,7 +5,7 @@ import Validation from "../validationform/validationfrom";
 import {CgDanger} from "react-icons/cg"
 import {TiTick} from "react-icons/ti";
 function Signup(){
-    const [formData,setFormData]=useState({username:"",email:"",password:"",confirmPassword:""})
+    const [formData,setFormData]=useState({username:"",email:"",newPassword:"",confirmPassword:""})
     const[errors,setErrors]=useState({username:false,email:false,password:false,confirmPassword:false})
     const[propsMessage,setPropsMessage]=useState("")
     const[props,setProps]=useState(false)
@@ -29,14 +29,14 @@ function Signup(){
         e.preventDefault();
         var errData=Validation(formData)
         // setErrors(errData)
-        setErrors({username:true,email:true,password:true,confirmPassword:true})
+        setErrors({username:true,email:true,newPassword:true,confirmPassword:true})
 
-        if(errData.email_verify==="success" && errData.password_verify==="success" && errData.confirmPassword_verify==="success"){
-            if(formData.password===formData.confirmPassword){
+        if(errData.email_verify==="success" && errData.newPassword_verify==="success" && errData.confirmPassword_verify==="success"){
+            if(formData.newPassword===formData.confirmPassword){
                 let userDetails={
                     Name:formData.username,
                     Email:formData.email,
-                    Password:formData.password,
+                    Password:formData.newPassword,
                 }
                 let options={
                     method:"POST",
@@ -93,8 +93,8 @@ function Signup(){
                         <input type="email" name="email" placeholder="Email" className="right-input" value={formData.email} onChange={handleChange} onBlur={handleBlur}/>
                         {errors.email && <span className="span-element">{Validation(formData).email}</span>}
 
-                        <input type="password" name="password" placeholder="Password" className="right-input" value={formData.password} onChange={handleChange} onBlur={handleBlur}/>
-                        {errors.password && <span className="span-element">{Validation(formData).password}</span>}
+                        <input type="password" name="newPassword" placeholder="Password" className="right-input" value={formData.newPassword} onChange={handleChange} onBlur={handleBlur}/>
+                        {errors.newPassword && <span className="span-element">{Validation(formData).newPassword}</span>}
 
                         <input type="password" name="confirmPassword" placeholder="Confirm Password" className="right-input" value={formData.confirmPassword} onChange={handleChange} onBlur={handleBlur}/>
                         {errors.confirmPassword && <span className="span-element">{Validation(formData).confirmPassword}</span>}

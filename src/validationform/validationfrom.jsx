@@ -18,11 +18,7 @@ export default function Validation(inputValues){
     if(password!==undefined){
       if (password==="") {
         validationErrors.password = '*password is required';
-      } else if (password.length < 6) {
-        validationErrors.password = 'Password must be longer than 6 characters';
-      } else if (password.length >= 20) {
-        validationErrors.password = 'Password must shorter than 20 characters';
-      } else{
+      }  else{
         validationErrors.password_verify="success"
       }
     }
